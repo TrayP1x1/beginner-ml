@@ -1,13 +1,15 @@
 .DS_Store
 Thumbs.db
+.codex
 
 # Python
 __pycache__/
 *.py[cod]
-*.pyo
-*.pyd
 .pytest_cache/
 .mypy_cache/
+.coverage
+.coverage.*
+htmlcov/
 
 # Virtual environments
 .venv/
@@ -27,8 +29,8 @@ figures/
 outputs/
 models/
 checkpoints/
+templates/test_ready_project/.mplconfig/
 *.png
 *.jpg
 *.jpeg
 *.pdf
-

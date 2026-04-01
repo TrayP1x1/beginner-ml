@@ -8,6 +8,23 @@ Rebuild the full workflow from memory.
 - Inspect and clean it.
 - Engineer one or two features.
 - Split, normalize, tensorize, train, and evaluate a model.
+- Organize the solution into helper functions instead of one giant script.
+- Make the full pipeline runnable from `main()`.
+- End the file with `if __name__ == "__main__": main()`.
+
+## Structure Goal
+
+Use a structure close to this:
+
+- imports
+- a small config class or constants section
+- `load_data()`
+- `prepare_features()`
+- `train_model()`
+- `evaluate_model()`
+- `main()`
+
+This is close to what you want in a real coding test: readable, fast to explain, and easy to debug.
 
 ## Suggested Output Files
 

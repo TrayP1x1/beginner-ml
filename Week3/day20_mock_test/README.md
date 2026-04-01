@@ -8,7 +8,13 @@ Pretend you have 60 to 90 minutes and solve the task like a real test.
 - Load the CSV and inspect it quickly.
 - Make two plots.
 - Train one simple model and report one metric.
+- Keep the final version runnable from `main.py` or from a file with a `main()` entry point.
 - After one run with the synthetic dataset, repeat the mock test with either `data/kaggle/housing_prices.csv` or `data/kaggle/titanic.csv`.
+
+## Mock-Test Rule
+
+Pretend the reviewer will only run one command.
+That means your code should have one obvious entry point and should not require running cells in a special order.
 
 ## Suggested Output Files
 

@@ -8,6 +8,19 @@ Work with `data/tiny_scores.csv` using the built-in `csv` module and write `read
 - Print the first 3 rows.
 - Compute the average of `python_score` manually.
 - Count how many students are in the file.
+- Create a helper function `load_rows(path)` that returns parsed rows.
+- Convert numeric columns safely instead of leaving them as strings.
+- Raise a helpful error if an expected column is missing.
+- Use `Path` from `pathlib` for the file path.
+
+## Stronger Python Goal
+
+Practice separating:
+
+- file loading
+- row parsing
+- summary computation
+- output formatting
 
 ## Suggested Output Files
 

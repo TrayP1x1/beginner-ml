@@ -1,6 +1,6 @@
 # Kaggle Practice Datasets
 
-These are the more realistic datasets you added for later-stage practice.
+These are the more realistic datasets for the later stages of the bootcamp.
 
 - `housing_prices.csv`: regression practice
 - `titanic.csv`: binary classification practice
@@ -11,11 +11,11 @@ Suggested use:
 - Week 2 EDA and plotting: `housing_prices.csv` or `titanic.csv`
 - Week 3 regression: `housing_prices.csv`
 - Week 3 classification: `titanic.csv`
+- Week 4 engineering mini-projects: either `housing_prices.csv` or `titanic.csv`
 - Bonus after the bootcamp: `iris.csv`
 
 Notes:
 
-- `housing_prices.csv` is great for learning regression metrics such as RMSE and R2.
+- `housing_prices.csv` is great for learning regression metrics and mixed feature handling.
 - `titanic.csv` is great for cleaning mixed data types and predicting survival.
-- `iris.csv` was copied with a proper header row so it is easier to load with `pandas`.
-
+- `iris.csv` is best treated as bonus practice after the main beginner-to-ML-ready ramp.

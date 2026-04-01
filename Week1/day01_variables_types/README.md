@@ -1,6 +1,7 @@
 # Day 1 - Variables and Types
 
 Write `intro_variables.py` in your IDE and practice creating values, printing them, and converting between string, int, and float.
+The upgrade for today is not harder syntax. The upgrade is writing cleaner, more deliberate Python.
 
 ## Tasks
 
@@ -8,6 +9,18 @@ Write `intro_variables.py` in your IDE and practice creating values, printing th
 - Print each variable and also print its type.
 - Convert the string `"42"` to both `int` and `float`.
 - Write 3 lines explaining when to use `int`, `float`, and `str`.
+- Rename any vague variable such as `x` or `value` into something more meaningful.
+- Add a helper function like `describe_value(name: str, value: object) -> None`.
+- Use f-strings consistently instead of mixing string styles.
+
+## Stronger Python Goal
+
+By the end of this day, your script should show:
+
+- readable variable names
+- one helper function
+- type hints on that helper
+- no repeated print logic
 
 ## Suggested Output Files
 

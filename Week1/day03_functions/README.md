@@ -1,6 +1,7 @@
 # Day 3 - Functions
 
 Write `functions_practice.py` and organize repeated logic into functions.
+Today is where you start writing functions that are easy to reuse and explain.
 
 ## Tasks
 
@@ -8,6 +9,19 @@ Write `functions_practice.py` and organize repeated logic into functions.
 - Create `average(numbers)`.
 - Create `is_passing(score, passing_grade=5.5)`.
 - Call each function with at least two examples.
+- Add type hints to all functions.
+- Add a one-line docstring to each function.
+- Raise a `ValueError` inside `average(numbers)` if the list is empty.
+- Write one function that calls the others and prints a mini report.
+
+## Stronger Python Goal
+
+By the end, your functions should have:
+
+- clear names
+- clear parameters
+- useful return values
+- at least one error case handled explicitly
 
 ## Suggested Output Files
 

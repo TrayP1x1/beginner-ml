@@ -1,6 +1,8 @@
 # Git Cheat Sheet
 
 These are the main commands you should practice during the bootcamp.
+The goal is not advanced git wizardry.
+The goal is being reliable, safe, and comfortable while your Python skills are growing fast.
 
 ## Core Daily Commands
 
@@ -171,7 +173,7 @@ git log --oneline --decorate --graph --all
 6. If there are no conflicts, run `git push`.
 7. If the merge is complete and the branch is done, delete the branch.
 
-## Good Beginner Workflow
+## Good Bootcamp Workflow
 
 1. Open the day exercise in your IDE.
 2. Write code until one small part works.

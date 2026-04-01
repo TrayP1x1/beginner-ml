@@ -8,6 +8,13 @@ Practice analysis queries with pandas.
 - Sort by `test_score` descending.
 - Group by `projects_completed` and compute mean `test_score`.
 - Select only the feature columns and print the first 5 rows.
+- Write a function per query instead of placing all logic at the top level.
+- Return DataFrames from those functions and only print in `main()`.
+- Add one function parameter that lets you change the filter or sort column.
+
+## Stronger Python Goal
+
+Use pandas operations, but structure them like reusable Python code.
 
 ## Suggested Output Files
 

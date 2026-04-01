@@ -8,6 +8,13 @@ Practice understanding what your model is doing, not only running it.
 - Compare training loss and validation loss.
 - Write 3 possible reasons for overfitting.
 - Write 3 common beginner bugs in PyTorch training loops.
+- Add one debugging checklist in comments or markdown.
+- Write a helper that prints a small prediction-vs-target sample.
+- Add one assertion or sanity check to catch mismatched tensor shapes.
+
+## Stronger Python Goal
+
+This day is about debugging discipline, not only metric formulas.
 
 ## Suggested Output Files
 

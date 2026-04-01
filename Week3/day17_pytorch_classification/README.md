@@ -3,12 +3,37 @@
 Train a classifier to predict `passed_test`.
 When the synthetic dataset feels manageable, repeat the same workflow on `data/kaggle/titanic.csv`.
 
-## Tasks
+## Prerequisites
+
+Before this day, you should already understand:
+
+- the Day 16 training loop structure
+- the difference between a continuous target and a binary target
+- why probabilities and thresholds matter in classification
+
+## Task Levels
+
+### Level 1 - Easy
 
 - Use `nn.BCEWithLogitsLoss()`.
 - Train for multiple epochs.
 - Convert logits to probabilities with `torch.sigmoid`.
+
+### Level 2 - Core
+
 - Compute test accuracy.
+- Write a `predict_probabilities(model, X)` helper.
+- Write an `evaluate_classification(...)` helper that returns multiple metrics.
+
+### Level 3 - Hard
+
+- Add one threshold parameter instead of hard-coding `0.5` everywhere.
+- Compare accuracy with at least one other metric such as precision or recall.
+- Repeat the workflow on `titanic.csv` and note what preprocessing becomes more advanced.
+
+## Stronger Python Goal
+
+Design prediction and evaluation code that can be reused across experiments.
 
 ## Suggested Output Files
 

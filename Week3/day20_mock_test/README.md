@@ -10,11 +10,18 @@ Pretend you have 60 to 90 minutes and solve the task like a real test.
 - Train one simple model and report one metric.
 - Keep the final version runnable from `main.py` or from a file with a `main()` entry point.
 - After one run with the synthetic dataset, repeat the mock test with either `data/kaggle/housing_prices.csv` or `data/kaggle/titanic.csv`.
+- Use helper functions from the start instead of writing everything inline first.
+- Add at least one type hint to each top-level helper.
+- Leave the code in a state that another person could review in five minutes.
 
 ## Mock-Test Rule
 
 Pretend the reviewer will only run one command.
 That means your code should have one obvious entry point and should not require running cells in a special order.
+
+## Stronger Python Goal
+
+The challenge is not only speed. It is writing clean code under time pressure.
 
 ## Suggested Output Files
 

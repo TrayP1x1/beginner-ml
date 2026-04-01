@@ -1,6 +1,11 @@
 # Local IDE To Colab Workflow
 
-This is a simple workflow that fits your goal well.
+This is a simple workflow that fits the bootcamp goal well.
+The main idea is:
+
+- write and organize code locally
+- track progress with git
+- use Colab when your machine is missing packages or when notebook execution is easier there
 
 ## Why This Workflow Works
 
@@ -16,7 +21,8 @@ This is a simple workflow that fits your goal well.
 4. Push to GitHub.
 5. Open Google Colab.
 6. Upload the notebook or pull your repo into Colab.
-7. Run the heavy notebook or training cells there.
+7. Run the heavier notebook or training cells there.
+8. Bring useful improvements back into the repo as normal Python files when possible.
 
 ## Two Easy Ways To Use Colab
 
@@ -33,7 +39,7 @@ This is the simplest option.
 
 This is better once your repo is set up well.
 
-1. Push `student_dev_ai_21_day_bootcamp` to GitHub.
+1. Push this bootcamp repo to GitHub.
 2. Open Colab.
 3. Open the notebook from GitHub.
 4. Run the notebook there.
@@ -43,7 +49,7 @@ This is better once your repo is set up well.
 - write code locally
 - commit locally
 - push to GitHub
-- run notebook training in Colab
+- run notebook training in Colab when needed
 - copy improvements back into the repo
 
 ## Practical Tip
@@ -53,4 +59,3 @@ Usually:
 
 - code and notes should go in git
 - temporary generated outputs usually should not
-

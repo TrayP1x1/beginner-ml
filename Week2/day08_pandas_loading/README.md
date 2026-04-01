@@ -8,6 +8,13 @@ Use `data/student_dev_ai_practice.csv` and write `pandas_loading.py` or a notebo
 - Print `head()`, `info()`, and `describe()`.
 - Write down what each column seems to mean.
 - Identify which column could be used for regression and which for classification.
+- Create a helper function like `inspect_dataframe(df)` instead of doing all printing inline.
+- Return a small dictionary summary with row count, column count, and numeric columns.
+- Add type hints for your helper functions.
+
+## Stronger Python Goal
+
+Move from "calling pandas methods" to "wrapping pandas work in clean Python helpers."
 
 ## Suggested Output Files
 

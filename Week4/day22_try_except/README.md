@@ -9,6 +9,9 @@ Write `safe_csv_reader.py` and practice handling common mistakes without crashin
 - Catch `ValueError` when converting a string to a number.
 - Add a small `finally` message such as `finished attempt`.
 - Explain in comments when you should catch an error and when you should let it fail.
+- Raise your own `ValueError` or `KeyError` with a clearer message when required columns are missing.
+- Separate parsing errors from file-path errors.
+- Return clean values from helper functions instead of only printing inside `except` blocks.
 
 ## Why This Matters
 

@@ -18,6 +18,8 @@ python -m unittest discover
 - a function that infers regression vs classification
 - a function that fills missing values
 - a function that computes a summary number
+- at least one failure-case test, not only happy-path tests
+- descriptive test method names that explain behavior
 
 ## Why This Matters
 

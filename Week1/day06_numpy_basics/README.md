@@ -8,6 +8,13 @@ Write `numpy_basics.py` and practice arrays, shapes, slicing, and vectorized mat
 - Add 10 to the full array.
 - Multiply the full array by 2.
 - Create a 3x3 matrix and print one row and one column.
+- Write a helper function that describes an array's shape, dtype, and mean.
+- Show the difference between list math and vectorized array math in 2 sentences.
+- Add one example of boolean masking or conditional selection.
+
+## Stronger Python Goal
+
+Start treating arrays as data objects with shape and dtype, not just as fancy lists.
 
 ## Suggested Output Files
 

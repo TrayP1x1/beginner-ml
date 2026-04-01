@@ -3,12 +3,39 @@
 Train a small network to predict `test_score`.
 When the synthetic dataset feels manageable, repeat the same workflow on `data/kaggle/housing_prices.csv`.
 
-## Tasks
+## Prerequisites
+
+Before this day, you should already be comfortable with:
+
+- functions and helper design
+- train/validation/test thinking
+- tensor shapes
+- the idea that a model maps inputs to predictions
+
+## Task Levels
+
+### Level 1 - Easy
 
 - Build a small `nn.Sequential` model.
 - Use `nn.MSELoss()` and an optimizer such as Adam.
+- Train for a few epochs and print the loss.
+
+### Level 2 - Core
+
 - Track train and validation loss for multiple epochs.
 - Compute mean absolute error on the test set.
+- Move training-loop logic into a `train_one_model(...)` helper.
+
+### Level 3 - Hard
+
+- Create a separate `evaluate_regression(...)` function.
+- Store hyperparameters in constants or a small config object.
+- Return a history structure instead of only printing losses.
+- Repeat the workflow on `housing_prices.csv` and compare the difficulty.
+
+## Stronger Python Goal
+
+Avoid one giant notebook cell. Build reusable training and evaluation functions.
 
 ## Suggested Output Files
 

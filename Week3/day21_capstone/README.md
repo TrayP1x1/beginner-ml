@@ -9,6 +9,13 @@ Build one independent mini-project and explain every step in plain English.
 - Train one model and report one metric.
 - Write a short conclusion about what worked and what you would improve next.
 - Strong recommended choices: housing for regression, Titanic for classification.
+- Structure the project with reusable helpers or modules if the file gets large.
+- Add a small config object, constants section, or clear parameter block.
+- Include one section called "tradeoffs" where you explain what you simplified and why.
+
+## Stronger Python Goal
+
+This project should prove that you can combine data work with readable Python structure.
 
 ## Suggested Output Files
 

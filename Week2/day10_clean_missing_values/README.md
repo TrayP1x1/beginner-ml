@@ -8,6 +8,13 @@ Write `clean_missing_values.py` and practice simple cleaning decisions.
 - Fill numeric missing values with the column mean.
 - Verify that the cleaned DataFrame has no missing values left.
 - Write 2 sentences explaining why mean filling was acceptable here.
+- Write a `fill_numeric_missing(df)` helper that returns a cleaned copy instead of mutating in place.
+- Add one assertion or explicit check that verifies no numeric missing values remain.
+- Write one note about when mean filling would be a bad choice.
+
+## Stronger Python Goal
+
+Practice writing pure-ish transformation functions: input DataFrame in, cleaned DataFrame out.
 
 ## Suggested Output Files
 

@@ -8,6 +8,13 @@ Write `plot_practice.py` and create three beginner-friendly charts.
 - Create a scatter plot of `hours_python` vs `test_score`.
 - Create a bar chart of average `test_score` by `projects_completed`.
 - Save at least one figure to a `.png` file.
+- Put each plot in its own function.
+- Add `figsize`, labels, and `tight_layout()` consistently.
+- Use `Path` to create an output folder such as `outputs/plots`.
+
+## Stronger Python Goal
+
+Treat plotting as reusable code, not only as notebook commands.
 
 ## Suggested Output Files
 

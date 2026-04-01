@@ -11,6 +11,9 @@ Rebuild the full workflow from memory.
 - Organize the solution into helper functions instead of one giant script.
 - Make the full pipeline runnable from `main()`.
 - End the file with `if __name__ == "__main__": main()`.
+- Introduce a small config class or dataclass for paths and hyperparameters.
+- Return intermediate artifacts in a clear structure instead of relying on globals.
+- Add at least one error check for a missing target column or empty dataset.
 
 ## Structure Goal
 
@@ -25,6 +28,10 @@ Use a structure close to this:
 - `main()`
 
 This is close to what you want in a real coding test: readable, fast to explain, and easy to debug.
+
+## Stronger Python Goal
+
+This should feel like a small application with stages, not a loose experiment.
 
 ## Suggested Output Files
 

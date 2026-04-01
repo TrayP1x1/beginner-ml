@@ -1,23 +1,48 @@
 # Test-Ready Project Template
 
-This template is here to help you practice the exact shape of a coding test solution:
+This template is here to help you practice the shape of a clean coding-test solution after the 3-week Python ramp.
 
 - load data from a CSV
 - inspect it quickly
-- clean simple missing values
-- train one model
+- validate inputs and clean missing values
+- train one baseline model
 - report one metric
 - run everything from `main.py`
-- accept simple command-line inputs with `sys.argv`
+- accept command-line inputs with `argparse`
 - keep a few automated tests
 
 ## Files
 
-- `main.py`: the entry point
-- `data_utils.py`: loading, quick inspection, and feature preparation
-- `model_utils.py`: model selection and evaluation
+- `main.py`: the entry point and CLI parsing
+- `data_utils.py`: loading, validation, summary, and feature preparation
+- `model_utils.py`: problem inference, splitting, training, and evaluation
 - `plot_utils.py`: quick plots saved to disk
-- `tests/`: basic `unittest` coverage for helpers
+- `tests/`: `unittest` coverage for helpers and failure cases
+
+## Recommended Submission Structure
+
+For a take-home test, a very strong default layout is:
+
+```text
+project/
+  main.py
+  data_utils.py
+  model_utils.py
+  plot_utils.py
+  outputs/
+  tests/
+  README.md
+```
+
+Use each part like this:
+
+- `main.py`: one obvious entry point the reviewer can run
+- `data_utils.py`: CSV loading, validation, cleaning, and feature preparation
+- `model_utils.py`: model training and evaluation
+- `plot_utils.py`: charts saved to disk
+- `outputs/`: generated plots or other run artifacts
+- `tests/`: a few focused automated tests
+- `README.md`: how to run the project, what the target is, and what you chose to do
 
 ## Why This Helps
 
@@ -44,7 +69,7 @@ From the repo root:
 Or with explicit arguments:
 
 ```bash
-.venv/bin/python templates/test_ready_project/main.py data/student_dev_ai_practice.csv passed_test
+.venv/bin/python templates/test_ready_project/main.py data/student_dev_ai_practice.csv --target passed_test --no-plots
 ```
 
 Run the tests with:
@@ -54,8 +79,8 @@ Run the tests with:
 ```
 
 By default it trains on `data/student_dev_ai_practice.csv`.
-You can also pass values from the terminal.
-The second argument is the target column:
+You can also pass values from the terminal with named flags.
+Useful targets include:
 
 - `"test_score"` for regression
 - `"passed_test"` for classification
@@ -78,4 +103,4 @@ if __name__ == "__main__":
 ```
 
 You do not need classes everywhere.
-One simple class for configuration or for one row type is enough for beginner practice.
+One simple config class plus a few focused helper modules is already a strong step toward cleaner Python.

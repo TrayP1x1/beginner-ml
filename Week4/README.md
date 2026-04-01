@@ -1,13 +1,15 @@
 # Week4
 
-This is an optional engineering week that sharpens the Python skills around the ML workflow.
+This is the extra advanced engineering week that sharpens the Python skills around the ML workflow.
+The main beginner-to-ML-ready ramp happens in Weeks 1 to 3.
+Week 4 is where you make that Python cleaner, stronger, and more professional.
 
-- Day 22: error handling with `try` and `except`
-- Day 23: command-line arguments with `sys`
-- Day 24: classes, modules, and imports
-- Day 25: writing tests with `unittest`
-- Day 26: debugging and refactoring
-- Day 27: project structure and `main.py`
+- Day 22: error handling with `try`, `except`, and custom validation
+- Day 23: command-line interfaces with `argparse`
+- Day 24: classes, dataclasses, modules, and imports
+- Day 25: writing stronger tests with `unittest`
+- Day 26: debugging, refactoring, and code review habits
+- Day 27: project structure, packaging mindset, and `main.py`
 - Day 28: final engineering mini-project
 
 Suggested workflow:
@@ -24,3 +26,4 @@ Why Week 4 matters:
 - It helps you recover faster when input files are wrong or missing.
 - It gives you practice writing code that another person can run in one command.
 - It turns notebook habits into project habits.
+- It sharpens the skills that separate "working Python" from cleaner engineering Python.

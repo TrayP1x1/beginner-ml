@@ -2,6 +2,7 @@
 
 Create `week1_mini_project.py` and solve a full CSV task without pandas.
 This day also introduces a simple class and the pattern of running everything from `main()`.
+The upgraded version should feel like a small real Python program, not a worksheet answer.
 
 ## Tasks
 
@@ -15,6 +16,9 @@ This day also introduces a simple class and the pattern of running everything fr
 - Run the script with:
   `if __name__ == "__main__":`
   `    main()`
+- Use type hints across the full file.
+- Add one validation check for missing columns or empty data.
+- Prefer `@dataclass` if you already understand the basics.
 
 ## Why This Matters
 
@@ -29,34 +33,44 @@ A beginner-friendly structure is:
 
 You will use this same idea later when your data-loading, cleaning, plotting, and training code becomes larger.
 
+## Stronger Python Goal
+
+If Week 1 worked well, you should now be able to:
+
+- design a small data-holding class
+- move logic out of the global scope
+- give your script a clear entry point
+- write code that another person can read top to bottom
+
 ## Suggested Shape
 
 Your file can look roughly like this:
 
 ```python
 import csv
+from dataclasses import dataclass
 from pathlib import Path
 
 
+@dataclass
 class ScoreRow:
-    def __init__(self, name, math_score, python_score):
-        self.name = name
-        self.math_score = float(math_score)
-        self.python_score = float(python_score)
+    name: str
+    math_score: float
+    python_score: float
 
-    def average_score(self):
+    def average_score(self) -> float:
         return (self.math_score + self.python_score) / 2
 
 
-def load_scores(path):
+def load_scores(path: Path) -> list[ScoreRow]:
     ...
 
 
-def print_summary(rows):
+def print_summary(rows: list[ScoreRow]) -> None:
     ...
 
 
-def main():
+def main() -> None:
     data_path = Path("data/tiny_scores.csv")
     rows = load_scores(data_path)
     print_summary(rows)

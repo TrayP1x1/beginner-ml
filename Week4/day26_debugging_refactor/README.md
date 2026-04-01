@@ -6,9 +6,11 @@ Take a working script and improve it without changing the result.
 
 - Rename unclear variables.
 - Break one long function into two or three smaller functions.
-- Add two strategic print statements for debugging.
+- Add two strategic debug messages or logging statements.
 - Remove duplicated code.
 - Write a short note about what became easier to read.
+- Identify one side effect you can isolate from pure transformation logic.
+- Write one short review note as if you were reviewing your own code.
 
 ## Why This Matters
 

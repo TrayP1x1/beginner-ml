@@ -8,6 +8,13 @@ Write `useful_modules.py` and practice `math`, `random`, `statistics`, and `path
 - Compute the mean and median of a list.
 - Use `Path` to check if `data/tiny_scores.csv` exists.
 - Sample 3 random numbers from a list.
+- Add a function that receives a path and returns a clean status message.
+- Seed the random generator and explain why deterministic output is useful.
+- Compare `Path.exists()` and `Path.resolve()` in a short note.
+
+## Stronger Python Goal
+
+Use this day to practice small utility functions, not just isolated one-line calls.
 
 ## Suggested Output Files
 

@@ -2,12 +2,36 @@
 
 Write `feature_engineering.py` and create stronger inputs for a model.
 
-## Tasks
+## Prerequisites
+
+Before this day, you should already be comfortable with:
+
+- defining and calling small functions
+- loading a CSV with pandas
+- selecting columns and creating new columns
+
+## Task Levels
+
+### Level 1 - Easy
 
 - Add `total_study_hours = hours_python + hours_numpy`.
-- Add `projects_per_test = projects_completed / (practice_tests + 1)`.
 - Compute the correlation matrix.
+
+### Level 2 - Core
+
+- Add `projects_per_test = projects_completed / (practice_tests + 1)`.
 - Write 3 short observations about which features look most useful.
+- Create a function `add_engineered_features(df)` that returns a new DataFrame.
+
+### Level 3 - Hard
+
+- Keep raw-column assumptions documented in a short docstring.
+- Add one guard against division-by-zero or missing required columns.
+- Write your transformation code so it is easy to reuse in later modeling days.
+
+## Stronger Python Goal
+
+Make your transformation steps explicit and reviewable.
 
 ## Suggested Output Files
 

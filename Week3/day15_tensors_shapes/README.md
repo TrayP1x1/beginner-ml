@@ -2,12 +2,40 @@
 
 Write `tensor_basics.py` or use Colab after coding the file in your IDE.
 
-## Tasks
+## Prerequisites
+
+Before this day, you should already understand:
+
+- what a feature matrix is
+- what a target column is
+- how train/test splits and normalization work
+- how to save preprocessing logic in helper functions
+
+If that still feels shaky, go back to `Week2/WEEK2_TO_WEEK3_BRIDGE.md` first.
+
+## Task Levels
+
+### Level 1 - Easy
 
 - Convert your normalized feature DataFrames to float tensors.
 - Convert your target columns to tensors with shape `(n, 1)`.
 - Print all shapes.
+
+### Level 2 - Core
+
 - Write one sentence explaining what `(n_samples, n_features)` means.
+- Create one helper that converts pandas or NumPy inputs into tensors.
+- Add assertions for expected shapes.
+
+### Level 3 - Hard
+
+- Write one small debug helper that prints tensor dtype, shape, and device.
+- Compare the shape of one pandas object, one NumPy array, and one tensor in your notes.
+- Make your tensor conversion code reusable for both regression and classification.
+
+## Stronger Python Goal
+
+Start making your tensor code self-checking instead of trusting every conversion blindly.
 
 ## Suggested Output Files
 

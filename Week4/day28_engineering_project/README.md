@@ -1,23 +1,38 @@
-# Day 28 - Final Engineering Mini-Project
+# Day 28 Example Project
 
-Build one clean end-to-end project that blends data skills and programming fundamentals.
+This folder is a small example of the final Week 4 engineering shape.
 
-## Tasks
+## Layout
 
-- Load a CSV from a command-line argument or from a config object.
-- Inspect the data and handle one possible error clearly.
-- Clean missing values.
-- Train one simple model.
-- Report one metric.
-- Save one or two plots.
-- Keep the whole project runnable from `main.py`.
-- Include at least two automated tests.
+```text
+day28_engineering_project/
+  main.py
+  data_utils.py
+  model_utils.py
+  plot_utils.py
+  outputs/
+  tests/
+  README.md
+```
 
-## Recommended Dataset
+## What It Demonstrates
 
-- Start with `data/student_dev_ai_practice.csv`
-- Then repeat with `data/kaggle/titanic.csv` or `data/kaggle/housing_prices.csv`
+- one obvious entry point from `main.py`
+- CSV loading and validation
+- feature preparation separated from model code
+- one saved plot in `outputs/`
+- a small automated test suite
 
-## Success Standard
+## Run It
 
-If a reviewer can run your code, understand the file layout, and see your tests pass, this week has done its job.
+From the repo root:
+
+```bash
+.venv/bin/python Week4/day28_engineering_project/main.py --target test_score
+```
+
+Run tests with:
+
+```bash
+.venv/bin/python -m unittest discover Week4/day28_engineering_project/tests
+```

@@ -9,6 +9,9 @@ Turn a single long script into a small project with multiple files.
 - Move your model code into `model_utils.py`.
 - Keep `main.py` focused on orchestration instead of low-level details.
 - Write 3 sentences explaining why this is easier to maintain.
+- Prefer `@dataclass` for simple data containers.
+- Add type hints to class attributes and public functions.
+- Give your class one useful method such as `from_args(...)` or `summary()`.
 
 ## Why This Matters
 

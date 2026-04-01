@@ -30,6 +30,7 @@ outputs/
 models/
 checkpoints/
 templates/test_ready_project/.mplconfig/
+Week4/day28_engineering_project/.mplconfig/
 *.png
 *.jpg
 *.jpeg

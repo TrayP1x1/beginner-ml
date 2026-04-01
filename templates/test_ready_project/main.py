@@ -1,3 +1,4 @@
+import argparse
 import os
 import sys
 from dataclasses import dataclass
@@ -5,58 +6,96 @@ from pathlib import Path
 
 os.environ.setdefault("MPLCONFIGDIR", str(Path(__file__).resolve().parent / ".mplconfig"))
 
-from data_utils import load_dataset, prepare_features_and_target, print_dataset_summary
-from model_utils import evaluate_model, infer_problem_type, split_data, train_model
+from data_utils import (
+    build_dataset_summary,
+    load_dataset,
+    prepare_features_and_target,
+    print_dataset_summary,
+)
+from model_utils import EvaluationResult, evaluate_model, infer_problem_type, split_data, train_model
 from plot_utils import save_quick_plots
 
 
-@dataclass
+@dataclass(frozen=True)
 class TrainingConfig:
     data_path: Path
     target_column: str
     test_size: float = 0.2
     random_state: int = 42
+    save_plots: bool = True
 
 
-def run_pipeline(config: TrainingConfig) -> None:
+def parse_args() -> TrainingConfig:
+    repo_root = Path(__file__).resolve().parents[2]
+    default_data_path = repo_root / "data" / "student_dev_ai_practice.csv"
+
+    parser = argparse.ArgumentParser(
+        description="Train a simple baseline model on a CSV dataset."
+    )
+    parser.add_argument("csv_path", nargs="?", default=default_data_path, type=Path)
+    parser.add_argument("--target", default="test_score", help="Target column to predict.")
+    parser.add_argument(
+        "--test-size",
+        default=0.2,
+        type=float,
+        help="Fraction of rows to reserve for the test set.",
+    )
+    parser.add_argument(
+        "--random-state",
+        default=42,
+        type=int,
+        help="Random seed used for train/test splitting.",
+    )
+    parser.add_argument(
+        "--no-plots",
+        action="store_true",
+        help="Skip saving quick diagnostic plots.",
+    )
+
+    args = parser.parse_args()
+    return TrainingConfig(
+        data_path=args.csv_path,
+        target_column=args.target,
+        test_size=args.test_size,
+        random_state=args.random_state,
+        save_plots=not args.no_plots,
+    )
+
+
+def print_evaluation(problem_type: str, evaluation: EvaluationResult) -> None:
+    print()
+    print("problem type:", problem_type)
+    print(f"test {evaluation.metric_name}:", round(evaluation.metric_value, 3))
+
+
+def run_pipeline(config: TrainingConfig) -> EvaluationResult:
     df = load_dataset(config.data_path)
-    print_dataset_summary(df, config.target_column)
+    summary = build_dataset_summary(df, config.target_column)
+    print_dataset_summary(summary, df)
 
-    plots_dir = Path(__file__).resolve().parent / "outputs"
-    save_quick_plots(df, config.target_column, plots_dir)
+    if config.save_plots:
+        plots_dir = Path(__file__).resolve().parent / "outputs"
+        save_quick_plots(df, config.target_column, plots_dir)
+        print("plots saved to:", plots_dir)
 
     X, y = prepare_features_and_target(df, config.target_column)
     problem_type = infer_problem_type(config.target_column)
 
     X_train, X_test, y_train, y_test = split_data(
-        X, y, test_size=config.test_size, random_state=config.random_state
+        X,
+        y,
+        problem_type=problem_type,
+        test_size=config.test_size,
+        random_state=config.random_state,
     )
     model = train_model(X_train, y_train, problem_type)
-    metric_value = evaluate_model(model, X_test, y_test, problem_type)
-
-    print()
-    print("problem type:", problem_type)
-    if problem_type == "classification":
-        print("test accuracy:", round(metric_value, 3))
-    else:
-        print("test MAE:", round(metric_value, 3))
-    print("plots saved to:", plots_dir)
+    evaluation = evaluate_model(model, X_test, y_test, problem_type)
+    print_evaluation(problem_type, evaluation)
+    return evaluation
 
 
 def main() -> None:
-    repo_root = Path(__file__).resolve().parents[2]
-    default_data_path = repo_root / "data" / "student_dev_ai_practice.csv"
-    default_target_column = "test_score"
-
-    args = sys.argv[1:]
-    data_path = Path(args[0]) if len(args) >= 1 else default_data_path
-    target_column = args[1] if len(args) >= 2 else default_target_column
-
-    if len(args) > 2:
-        print("Usage: python main.py [csv_path] [target_column]")
-        sys.exit(1)
-
-    config = TrainingConfig(data_path=data_path, target_column=target_column)
+    config = parse_args()
     try:
         run_pipeline(config)
     except FileNotFoundError:

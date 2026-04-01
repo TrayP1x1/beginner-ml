@@ -1,6 +1,7 @@
 # Day 2 - Loops and Lists
 
 Write `loops_and_lists.py` and practice iterating over values.
+Today is about avoiding subtle logic mistakes while making your loop code more reusable.
 
 ## Tasks
 
@@ -8,6 +9,17 @@ Write `loops_and_lists.py` and practice iterating over values.
 - Print only the even numbers.
 - Compute the total with a loop instead of `sum()`.
 - Compute the average and print it.
+- Add input validation for the empty-list case before computing the average.
+- Create helper functions such as `get_even_numbers(numbers)` and `calculate_average(numbers)`.
+- Use `enumerate()` at least once to print index plus value.
+
+## Stronger Python Goal
+
+Focus on:
+
+- returning values from functions instead of printing everything directly
+- avoiding off-by-one and counting bugs
+- writing one loop for one purpose when possible
 
 ## Suggested Output Files
 

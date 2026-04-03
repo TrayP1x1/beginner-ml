@@ -41,5 +41,3 @@ if __name__ == "__main__":
     lst = list_of_numbers()
     print(f"You entered: {lst}")
     main(lst)
-
-7

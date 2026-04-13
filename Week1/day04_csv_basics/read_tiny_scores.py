@@ -26,19 +26,37 @@ def csv_reader(path, r: int = 1):
         print(f"The amount of students is {amount_of_students}")
 
 
-def csv_writeer():
-    tiny_scores_path = Path(__file__).resolve().parents[2] / "data" / "tiny_scores.csv"
+def csv_writer(path):
 
-    with tiny_scores_path.open("w", newline="") as file:
+    with path.open("w", newline="") as file:
         writer = csv.writer(file)
         writer.writerow([])
+
+
+def load_rows(path) -> list[dict[str, str |float]]:
+    rows = []
+    with path.open("r", newline="") as file:
+        reader = csv.DictReader(file)
+        numeric_columns = ["python_score", "numpy_score"]
+
+        for row in reader:
+            for column in numeric_columns:
+                try:
+                    row[column] = float(row[column])
+                except(ValueError, TypeError):
+                    row[column] = float(row[column])
+
+            rows.append(row)
+
+    return rows
+            
 
 
 def main():
     # Path(__file__) is current file, .resolve() is hard file .parents[]
     tiny_scores_path = Path(__file__).resolve().parents[2] / "data" / "tiny_scores.csv"
-    csv_reader(tiny_scores_path, 3)
-
+    # csv_reader(tiny_scores_path, 3)
+    for row in load_rows(tiny_scores_path): print(row)
 
 if __name__ == "__main__":
     main()

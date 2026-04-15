@@ -4,6 +4,8 @@ Create `week1_mini_project.py` and solve a full CSV task without pandas.
 This day also introduces a simple class and the pattern of running everything from `main()`.
 The upgraded version should feel like a small real Python program, not a worksheet answer.
 
+If class syntax still feels new, you can skim [../../Week4/day24_classes_modules/CLASS_BASICS.md](../../Week4/day24_classes_modules/CLASS_BASICS.md) for a short refresher on `self`, `__init__`, `@dataclass`, and `@property`.
+
 ## Tasks
 
 - Read `data/tiny_scores.csv`.
@@ -32,6 +34,14 @@ A beginner-friendly structure is:
 - `if __name__ == "__main__": main()`
 
 You will use this same idea later when your data-loading, cleaning, plotting, and training code becomes larger.
+
+## Class Syntax Reminder
+
+- `class ScoreRow:` starts a class definition.
+- `@dataclass` can generate a simple `__init__` for you.
+- `self` refers to the current object.
+- A normal method name does not need double underscores.
+- Use `@property` only when you want a computed method to be used like an attribute.
 
 ## Stronger Python Goal
 

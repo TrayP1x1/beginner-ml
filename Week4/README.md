@@ -12,6 +12,9 @@ Week 4 is where you make that Python cleaner, stronger, and more professional.
 - Day 27: project structure, packaging mindset, and `main.py`
 - Day 28: final engineering mini-project
 
+Tip:
+Day 24 now includes a class refresher note covering `self`, `__init__`, `@property`, normal methods vs dunder methods, and underscore naming.
+
 Suggested workflow:
 
 1. Read the exercise brief for the day.

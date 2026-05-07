@@ -4,7 +4,6 @@ import pandas as pd
 import torch
 from sklearn.model_selection import train_test_split
 
-
 FEATURE_COLUMNS = [
     "hours_python",
     "hours_numpy",
@@ -49,7 +48,9 @@ def to_tensor_pair(X: pd.DataFrame, y: pd.Series) -> tuple[torch.Tensor, torch.T
 
 
 def main() -> None:
-    data_path = Path(__file__).resolve().parents[2] / "data" / "student_dev_ai_practice.csv"
+    data_path = (
+        Path(__file__).resolve().parents[2] / "data" / "student_dev_ai_practice.csv"
+    )
     df = clean_dataframe(load_dataset(data_path))
     X, y = split_features_and_target(df, "test_score")
 
@@ -60,13 +61,21 @@ def main() -> None:
     )
     X_train_norm, X_valid_norm = normalize_train_valid(X_train, X_valid)
 
-    print("NumPy shapes:", X_train_norm.to_numpy().shape, y_train.to_numpy().reshape(-1, 1).shape)
+    print(
+        "NumPy shapes:",
+        X_train_norm.to_numpy().shape,
+        y_train.to_numpy().reshape(-1, 1).shape,
+    )
 
     X_train_tensor, y_train_tensor = to_tensor_pair(X_train_norm, y_train)
     X_valid_tensor, y_valid_tensor = to_tensor_pair(X_valid_norm, y_valid)
 
-    print("Tensor train shapes:", tuple(X_train_tensor.shape), tuple(y_train_tensor.shape))
-    print("Tensor valid shapes:", tuple(X_valid_tensor.shape), tuple(y_valid_tensor.shape))
+    print(
+        "Tensor train shapes:", tuple(X_train_tensor.shape), tuple(y_train_tensor.shape)
+    )
+    print(
+        "Tensor valid shapes:", tuple(X_valid_tensor.shape), tuple(y_valid_tensor.shape)
+    )
 
 
 if __name__ == "__main__":

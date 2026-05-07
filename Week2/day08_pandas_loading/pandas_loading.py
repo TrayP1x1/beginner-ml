@@ -14,7 +14,9 @@ def inspect_dataframe(df: pd.DataFrame) -> dict[str, object]:
         "row_count": len(df),
         "column_count": len(df.columns),
         "numeric_columns": df.select_dtypes(include="number").columns.tolist(),
-        "missing_counts": {column: int(count) for column, count in df.isna().sum().items()},
+        "missing_counts": {
+            column: int(count) for column, count in df.isna().sum().items()
+        },
     }
 
 
@@ -30,7 +32,9 @@ def print_inspection_report(df: pd.DataFrame) -> None:
 
 
 def main() -> None:
-    data_path = Path(__file__).resolve().parents[2] / "data" / "student_dev_ai_practice.csv"
+    data_path = (
+        Path(__file__).resolve().parents[2] / "data" / "student_dev_ai_practice.csv"
+    )
     dataframe = load_dataset(data_path)
     print_inspection_report(dataframe)
 

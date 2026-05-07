@@ -1,9 +1,9 @@
 def list_of_numbers() -> list[int]:
     numbers = []
 
-    while True: 
+    while True:
         user_input = input("Enter a number (or 'done' to finish): ")
-        if user_input.lower() == 'done' or len(numbers) >= 8:
+        if user_input.lower() == "done" or len(numbers) >= 8:
             break
         else:
             try:
@@ -13,15 +13,17 @@ def list_of_numbers() -> list[int]:
     print()
     return numbers
 
-def get_even_numbers(numbers: list[int]) -> list[int]: 
+
+def get_even_numbers(numbers: list[int]) -> list[int]:
     even_numbers = [number for number in numbers if number % 2 == 0]
     return even_numbers
 
+
 def calculate_average(numbers: list[int]) -> float:
-    
+
     if len(numbers) == 0:
         return 0.0
-    
+
     total = 0
     for number in numbers:
         total += number

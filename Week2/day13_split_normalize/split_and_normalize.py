@@ -4,7 +4,6 @@ from pathlib import Path
 import pandas as pd
 from sklearn.model_selection import train_test_split
 
-
 FEATURE_COLUMNS = [
     "hours_python",
     "hours_numpy",
@@ -50,7 +49,9 @@ def split_dataset(
 def fit_normalization_stats(X_train: pd.DataFrame) -> NormalizationStats:
     means = {column: float(X_train[column].mean()) for column in X_train.columns}
     stds = {
-        column: float(X_train[column].std()) if float(X_train[column].std()) != 0.0 else 1.0
+        column: (
+            float(X_train[column].std()) if float(X_train[column].std()) != 0.0 else 1.0
+        )
         for column in X_train.columns
     }
     return NormalizationStats(means=means, stds=stds)
@@ -59,12 +60,16 @@ def fit_normalization_stats(X_train: pd.DataFrame) -> NormalizationStats:
 def apply_normalization(X: pd.DataFrame, stats: NormalizationStats) -> pd.DataFrame:
     normalized = X.copy()
     for column in normalized.columns:
-        normalized[column] = (normalized[column] - stats.means[column]) / stats.stds[column]
+        normalized[column] = (normalized[column] - stats.means[column]) / stats.stds[
+            column
+        ]
     return normalized
 
 
 def main() -> None:
-    data_path = Path(__file__).resolve().parents[2] / "data" / "student_dev_ai_practice.csv"
+    data_path = (
+        Path(__file__).resolve().parents[2] / "data" / "student_dev_ai_practice.csv"
+    )
     df = clean_numeric_missing_values(load_dataset(data_path))
     X_train, X_valid, X_test, y_train, y_valid, y_test = split_dataset(df, "test_score")
 

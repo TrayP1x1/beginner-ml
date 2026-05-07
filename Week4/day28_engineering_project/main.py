@@ -3,7 +3,9 @@ import os
 from dataclasses import dataclass
 from pathlib import Path
 
-os.environ.setdefault("MPLCONFIGDIR", str(Path(__file__).resolve().parent / ".mplconfig"))
+os.environ.setdefault(
+    "MPLCONFIGDIR", str(Path(__file__).resolve().parent / ".mplconfig")
+)
 
 from data_utils import load_dataset, prepare_features
 from model_utils import infer_problem_type, train_and_evaluate
@@ -17,8 +19,12 @@ class AppConfig:
 
 
 def parse_args() -> AppConfig:
-    default_path = Path(__file__).resolve().parents[2] / "data" / "student_dev_ai_practice.csv"
-    parser = argparse.ArgumentParser(description="Run a small engineering-style ML baseline.")
+    default_path = (
+        Path(__file__).resolve().parents[2] / "data" / "student_dev_ai_practice.csv"
+    )
+    parser = argparse.ArgumentParser(
+        description="Run a small engineering-style ML baseline."
+    )
     parser.add_argument("csv_path", nargs="?", default=default_path, type=Path)
     parser.add_argument("--target", default="test_score")
     args = parser.parse_args()

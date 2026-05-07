@@ -4,7 +4,9 @@ import matplotlib.pyplot as plt
 import pandas as pd
 
 
-def save_target_histogram(df: pd.DataFrame, target_column: str, output_dir: Path) -> None:
+def save_target_histogram(
+    df: pd.DataFrame, target_column: str, output_dir: Path
+) -> None:
     plt.figure(figsize=(8, 4))
     df[target_column].hist(bins=20)
     plt.title(f"Distribution of {target_column}")
@@ -37,7 +39,9 @@ def save_quick_plots(df: pd.DataFrame, target_column: str, output_dir: Path) -> 
 
     save_target_histogram(df, target_column, output_dir)
 
-    feature_candidates = [column for column in numeric_columns if column != target_column]
+    feature_candidates = [
+        column for column in numeric_columns if column != target_column
+    ]
     if not feature_candidates:
         return
 

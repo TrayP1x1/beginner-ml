@@ -7,7 +7,6 @@ from sklearn.linear_model import LinearRegression, LogisticRegression
 from sklearn.metrics import accuracy_score, mean_absolute_error
 from sklearn.model_selection import train_test_split
 
-
 ProblemType = Literal["regression", "classification"]
 
 CLASSIFICATION_TARGETS = {"passed_test", "survived", "target", "label"}
@@ -52,7 +51,9 @@ def create_model(problem_type: ProblemType) -> Any:
     return LinearRegression()
 
 
-def train_model(X_train: pd.DataFrame, y_train: pd.Series, problem_type: ProblemType) -> Any:
+def train_model(
+    X_train: pd.DataFrame, y_train: pd.Series, problem_type: ProblemType
+) -> Any:
     model = create_model(problem_type)
     model.fit(X_train, y_train)
     return model

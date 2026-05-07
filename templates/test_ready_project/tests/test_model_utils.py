@@ -32,7 +32,9 @@ class TestModelUtils(unittest.TestCase):
         y = pd.Series([0, 1, 0])
 
         with self.assertRaises(ValueError):
-            split_data(X, y, problem_type="classification", test_size=1.0, random_state=42)
+            split_data(
+                X, y, problem_type="classification", test_size=1.0, random_state=42
+            )
 
     def test_evaluate_model_returns_accuracy_for_classification(self) -> None:
         X_test = pd.DataFrame({"feature": [1, 2]})

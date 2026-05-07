@@ -35,7 +35,9 @@ def load_rows(path) -> list[dict[str, str | float]]:
         numeric_columns = ["python_score", "numpy_score"]
         fieldnames = reader.fieldnames or []
 
-        missing_columns = [column for column in numeric_columns if column not in fieldnames]
+        missing_columns = [
+            column for column in numeric_columns if column not in fieldnames
+        ]
         if missing_columns:
             missing = ", ".join(missing_columns)
             raise KeyError(f"Expected column(s) missing from CSV: {missing}")

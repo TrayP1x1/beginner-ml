@@ -6,7 +6,6 @@ import torch
 from torch import nn
 from torch.utils.data import DataLoader, TensorDataset
 
-
 FEATURE_COLUMNS = [
     "hours_python",
     "hours_numpy",
@@ -35,7 +34,9 @@ def load_data(csv_path: Path) -> pd.DataFrame:
     return df
 
 
-def prepare_features(df: pd.DataFrame, target_column: str) -> tuple[pd.DataFrame, pd.Series]:
+def prepare_features(
+    df: pd.DataFrame, target_column: str
+) -> tuple[pd.DataFrame, pd.Series]:
     if target_column not in df.columns:
         raise ValueError(f"Missing target column: {target_column}")
 
@@ -56,7 +57,9 @@ def normalize_features(X: pd.DataFrame) -> pd.DataFrame:
         std = float(normalized[column].std())
         if std == 0.0:
             std = 1.0
-        normalized[column] = (normalized[column] - float(normalized[column].mean())) / std
+        normalized[column] = (
+            normalized[column] - float(normalized[column].mean())
+        ) / std
     return normalized
 
 
@@ -75,7 +78,9 @@ def build_model(input_dim: int) -> nn.Module:
     )
 
 
-def train_model(model: nn.Module, dataloader: DataLoader, config: TrainingConfig) -> list[float]:
+def train_model(
+    model: nn.Module, dataloader: DataLoader, config: TrainingConfig
+) -> list[float]:
     optimizer = torch.optim.Adam(model.parameters(), lr=config.learning_rate)
     loss_fn = nn.MSELoss()
     loss_history: list[float] = []
@@ -105,7 +110,9 @@ def evaluate_model(model: nn.Module, X: pd.DataFrame, y: pd.Series) -> float:
 
 def main() -> None:
     config = TrainingConfig(
-        data_path=Path(__file__).resolve().parents[2] / "data" / "student_dev_ai_practice.csv"
+        data_path=Path(__file__).resolve().parents[2]
+        / "data"
+        / "student_dev_ai_practice.csv"
     )
     df = load_data(config.data_path)
     X, y = prepare_features(df, config.target_column)

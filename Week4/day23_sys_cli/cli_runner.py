@@ -5,11 +5,17 @@ import pandas as pd
 
 
 def parse_args() -> argparse.Namespace:
-    parser = argparse.ArgumentParser(description="Inspect a CSV file from the command line.")
-    default_path = Path(__file__).resolve().parents[2] / "data" / "student_dev_ai_practice.csv"
+    parser = argparse.ArgumentParser(
+        description="Inspect a CSV file from the command line."
+    )
+    default_path = (
+        Path(__file__).resolve().parents[2] / "data" / "student_dev_ai_practice.csv"
+    )
     parser.add_argument("csv_path", nargs="?", default=default_path, type=Path)
     parser.add_argument("--target", default="test_score")
-    parser.add_argument("--head", default=5, type=int, help="Number of rows to preview.")
+    parser.add_argument(
+        "--head", default=5, type=int, help="Number of rows to preview."
+    )
     return parser.parse_args()
 
 

@@ -3,7 +3,6 @@ from pathlib import Path
 import pandas as pd
 import torch
 
-
 FEATURE_COLUMNS = [
     "hours_python",
     "hours_numpy",
@@ -31,11 +30,15 @@ def to_float_tensor(values) -> torch.Tensor:
 
 
 def describe_tensor(name: str, tensor: torch.Tensor) -> None:
-    print(f"{name}: shape={tuple(tensor.shape)}, dtype={tensor.dtype}, device={tensor.device}")
+    print(
+        f"{name}: shape={tuple(tensor.shape)}, dtype={tensor.dtype}, device={tensor.device}"
+    )
 
 
 def main() -> None:
-    data_path = Path(__file__).resolve().parents[2] / "data" / "student_dev_ai_practice.csv"
+    data_path = (
+        Path(__file__).resolve().parents[2] / "data" / "student_dev_ai_practice.csv"
+    )
     df = prepare_dataframe(load_dataset(data_path))
 
     X = to_float_tensor(df[FEATURE_COLUMNS].to_numpy())

@@ -4,11 +4,14 @@ import csv
 import random
 import statistics
 
-def sample_three_numbers(list_of_numbers: list[int|float]) -> list[int|float]:
+
+def sample_three_numbers(list_of_numbers: list[int | float]) -> list[int | float]:
     return random.sample(list_of_numbers, k=3)
 
-def compute_mean(list_of_numbers: list[int|float]) -> float: 
+
+def compute_mean(list_of_numbers: list[int | float]) -> float:
     return statistics.mean(list_of_numbers)
+
 
 def return_numeric_values(path: Path, numeric_column_name: str) -> list[float]:
     if not numeric_column_name:
@@ -53,14 +56,18 @@ def main() -> None:
     path = Path(__file__).resolve().parents[2] / "data" / "tiny_scores.csv"
 
     print(math.sqrt(81))
-    print(f'{math.log(27, 3)}\n\n')
+    print(f"{math.log(27, 3)}\n\n")
 
     try:
         # Loop through each CSV column and only print the numeric ones.
         for field_name in show_field_names(path):
             try:
-                print(f"A sample of 3 numbers from {field_name} is\n{sample_three_numbers(return_numeric_values(path, field_name))}")
-                print(f"The mean of {field_name} is {compute_mean(return_numeric_values(path, field_name)):.2f}")
+                print(
+                    f"A sample of 3 numbers from {field_name} is\n{sample_three_numbers(return_numeric_values(path, field_name))}"
+                )
+                print(
+                    f"The mean of {field_name} is {compute_mean(return_numeric_values(path, field_name)):.2f}"
+                )
             except ValueError as error:
                 # print(error)
                 continue

@@ -6,7 +6,6 @@ from sklearn.linear_model import LinearRegression, LogisticRegression
 from sklearn.metrics import accuracy_score, mean_absolute_error
 from sklearn.model_selection import train_test_split
 
-
 ProblemType = Literal["regression", "classification"]
 
 

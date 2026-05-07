@@ -2,7 +2,6 @@ from pathlib import Path
 
 import pandas as pd
 
-
 REQUIRED_COLUMNS = {"hours_python", "hours_numpy", "test_score"}
 
 
@@ -24,8 +23,12 @@ def load_scores(csv_path: Path) -> pd.DataFrame:
 
 def summarize_scores(dataframe: pd.DataFrame) -> dict[str, float]:
     try:
-        avg_python = float(dataframe["hours_python"].fillna(dataframe["hours_python"].median()).mean())
-        avg_numpy = float(dataframe["hours_numpy"].fillna(dataframe["hours_numpy"].median()).mean())
+        avg_python = float(
+            dataframe["hours_python"].fillna(dataframe["hours_python"].median()).mean()
+        )
+        avg_numpy = float(
+            dataframe["hours_numpy"].fillna(dataframe["hours_numpy"].median()).mean()
+        )
         avg_test = float(dataframe["test_score"].mean())
     except ValueError as error:
         raise ValueError("Could not convert score values to numbers.") from error
@@ -38,7 +41,9 @@ def summarize_scores(dataframe: pd.DataFrame) -> dict[str, float]:
 
 
 def main() -> None:
-    data_path = Path(__file__).resolve().parents[2] / "data" / "student_dev_ai_practice.csv"
+    data_path = (
+        Path(__file__).resolve().parents[2] / "data" / "student_dev_ai_practice.csv"
+    )
 
     try:
         dataframe = load_scores(data_path)

@@ -4,7 +4,9 @@ import sys
 from dataclasses import dataclass
 from pathlib import Path
 
-os.environ.setdefault("MPLCONFIGDIR", str(Path(__file__).resolve().parent / ".mplconfig"))
+os.environ.setdefault(
+    "MPLCONFIGDIR", str(Path(__file__).resolve().parent / ".mplconfig")
+)
 
 from data_utils import (
     build_dataset_summary,
@@ -12,7 +14,13 @@ from data_utils import (
     prepare_features_and_target,
     print_dataset_summary,
 )
-from model_utils import EvaluationResult, evaluate_model, infer_problem_type, split_data, train_model
+from model_utils import (
+    EvaluationResult,
+    evaluate_model,
+    infer_problem_type,
+    split_data,
+    train_model,
+)
 from plot_utils import save_quick_plots
 
 
@@ -33,7 +41,9 @@ def parse_args() -> TrainingConfig:
         description="Train a simple baseline model on a CSV dataset."
     )
     parser.add_argument("csv_path", nargs="?", default=default_data_path, type=Path)
-    parser.add_argument("--target", default="test_score", help="Target column to predict.")
+    parser.add_argument(
+        "--target", default="test_score", help="Target column to predict."
+    )
     parser.add_argument(
         "--test-size",
         default=0.2,

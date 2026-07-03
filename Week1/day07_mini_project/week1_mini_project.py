@@ -1,14 +1,12 @@
-from dataclasses import dataclass
+import numpy as np
+import csv
 
-@dataclass
-class ScoreRow:
-    name: str
-    math_score: float
-    python_score: float
 
-    @property
-    def average_score(self) -> float:  
-        return (self.math_score + self.python_score) / 2
-    
-score = ScoreRow("menos", 7.5, 8.3)
-print(score.average_score)
+def print_headers(path):
+    """
+    Prints headers 
+    """
+    with path.open("r", newline="") as file:
+        reader = csv.reader(file)
+        print(next(reader))
+

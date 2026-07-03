@@ -39,11 +39,14 @@ def array_mask(array: np.ndarray) -> None:
 
 
 def main():
-    # create_array()
-    # create_matrix()
-    # array_info(create_array())
+    create_array()
+    create_matrix()
+    array_info(create_array())
     array_mask(create_array())
 
 
 if __name__ == "__main__":
+# Python lists do not do element-wise math, so [1, 2, 3] * 2 repeats the list.
+# NumPy arrays do vectorized math, so np.array([1, 2, 3]) * 2 becomes [2, 4, 6].
+
     main()
